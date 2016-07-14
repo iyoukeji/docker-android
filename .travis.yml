@@ -15,6 +15,6 @@ script:
   - docker build -t android-r23 android-r23
   - docker tag android-r23 iyoukeji/android:r23
   - docker push iyoukeji/android:r23
-  - docker build -t android-react-native
-  - docker tag android-r23 iyoukeji/android:react-native
+  - docker build -t android-react-native android-react-native
+  - docker tag android-react-native iyoukeji/android:react-native
   - docker push iyoukeji/android:react-native
