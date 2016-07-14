@@ -1,2 +1,2 @@
-# docker-android
+# Docker Android
 Android SDK in Docker

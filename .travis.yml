@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
+
+script:
+  - docker build -t android android-base
+  - docker tag android iyoukeji/android:base
+  - docker tag android iyoukeji/android:latest
+  - docker push android iyoukeji/android:base
+  - docker push android iyoukeji/android:latest
+  - docker build -t android-r23 android-r23
+  - docker tag android-r23 iyoukeji/android:r23
+  - docker push android iyoukeji/android:r23
+  - docker build -t android-react-native
+  - docker tag android-r23 iyoukeji/android:react-native
+  - docker push android iyoukeji/android:react-native
