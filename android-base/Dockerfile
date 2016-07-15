@@ -1,11 +1,13 @@
-FROM alpine:3.4
+FROM java:8-jdk
 
 ENV GRADLE_VERSION 2.14
 ENV GRADLE_HOME /usr/lib/gradle
 ENV ANDROID_SDK_VERSION r24.4.1
 ENV ANDROID_HOME /usr/lib/android-sdk-linux
 
-RUN apk add --no-cache openjdk8 libstdc++ curl bash \
+RUN apt-get update \
+    && apt-get install -y lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6 \
+    && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /tmp/gradle && cd /tmp/gradle \
     && curl -sSLO https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
     && unzip gradle-${GRADLE_VERSION}-bin.zip \
