@@ -6,7 +6,7 @@ ENV ANDROID_SDK_VERSION r24.4.1
 ENV ANDROID_HOME /usr/lib/android-sdk-linux
 
 RUN apt-get update \
-    && apt-get install -y lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6 \
+    && apt-get install -y lib32stdc++6 lib32z1 lib32ncurses5 \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /tmp/gradle && cd /tmp/gradle \
     && curl -sSLO https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
